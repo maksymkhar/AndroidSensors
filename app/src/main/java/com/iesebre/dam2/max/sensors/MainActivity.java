@@ -9,18 +9,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Surface;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
 
     private SensorManager sensorManager;
     private Sensor accelerometer;
 
+    private TextView axisX, axisY, axisZ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        axisX = (TextView) findViewById(R.id.axisX);
+        axisY = (TextView) findViewById(R.id.axisY);
+        axisZ = (TextView) findViewById(R.id.axisZ);
+        
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
@@ -55,14 +61,10 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
         float mSensorX, mSensorY;
 
-        Log.v("1", "" + event.values[0]);
-        Log.v("2", "" + event.values[1]);
-        Log.v("3", "" + event.values[2]);
-
+        axisX.setText(String.valueOf(event.values[0]));
+        axisY.setText(String.valueOf(event.values[1]));
+        axisZ.setText(String.valueOf(event.values[2]));
     }
-
-
-
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
