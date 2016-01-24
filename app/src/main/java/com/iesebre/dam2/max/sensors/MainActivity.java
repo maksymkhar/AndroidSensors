@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         axisX = (TextView) findViewById(R.id.axisX);
         axisY = (TextView) findViewById(R.id.axisY);
         axisZ = (TextView) findViewById(R.id.axisZ);
-        
+
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
